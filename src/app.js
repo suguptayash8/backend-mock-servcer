@@ -1,12 +1,13 @@
 const express = require("express");
+const path = require("path");
 const { contact } = require("./controller/ContactController");
 const about = require('./router/about');
 
-require('dotenv').config({path: __dirname + '../local.env'})
+require('dotenv').config({path: path.join(__dirname, '..',  'local.env')})
 
 const app = express();
 
-const port = process.env.port || 3000;
+const port = process.env.port;
 
 app.get("/", (req, res) => {
     res.json({ message: "That's it!" });
